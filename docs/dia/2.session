@@ -1,0 +1,12 @@
+window_sizes 1920 988 406 1508 827 92
+cleanlooks_style
+diagrams
+  active  sequencediagram_ref 128002 // sed
+    1508 827 100 A2 0 0
+end
+show_stereotypes
+selected sequencediagram_ref 128002 // sed
+open
+  usecaseview_ref 128002 // ca
+end
+end

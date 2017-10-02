@@ -1,0 +1,159 @@
+format 222
+
+classinstance 128002 class_ref 128002 // browser
+ color darkblue  name ""   xyz 26 75 2005 life_line_z 2000
+classinstance 128258 class_ref 128258 // webterm
+ color darkblue  name ""   xyz 926 83 2005 life_line_z 2000
+classinstance 128386 class_ref 128386 // Linux
+ color darkblue  name ""   xyz 334 252 2005 life_line_z 2000
+fragment 129154 "rssh.mine.nu server"
+  color lightgreen xyzwh 645 17 1995 382 648
+end
+classinstance 129794 class_ref 128514 // nginx
+ color darkblue  name ""   xyz 774 82 2005 life_line_z 2000
+classinstance 129922 class_ref 128642 // ssh
+ color darkblue  name ""   xyz 683 394 2005 life_line_z 2000
+fragment 133634 "remote device"
+  color yellow xyzwh 303 15 1995 203 647
+end
+fragment 133762 "web"
+  color lightblue xyzwh 3.5 13.5 1995 150 649
+end
+textcanvas 134018 "shell
+hookup
+"
+  xyzwh 883 534 2000 70 94
+textcanvas 134402 "secured"
+  fg red  xyzwh 177 129 2000 76 32
+textcanvas 134530 "secured"
+  fg red  xyzwh 541 331 2000 76 32
+textcanvas 134658 "secured"
+  fg red  xyzwh 548 443 2000 76 32
+textcanvas 134786 "secured"
+  fg red  xyzwh 175 561 2000 76 32
+textcanvas 135042 "secured"
+  fg red  xyzwh 543 131 2000 76 32
+textcanvas 135170 "secured"
+  fg red  xyzwh 852 488 2000 76 32
+textcanvas 135298 "secured"
+  fg red  xyzwh 864 617 2000 76 32
+durationcanvas 130050 classinstance_ref 128002 // :browser
+  color lightorange
+  xyzwh 67 130 2010 11 110
+end
+durationcanvas 130178 classinstance_ref 129794 // :nginx
+  color darkgreen
+  xyzwh 803 132 2010 11 297
+  overlappingdurationcanvas 131074
+    color darkgreen
+    xyzwh 809 333 2020 11 58
+  end
+end
+durationcanvas 130434 classinstance_ref 128386 // :Linux
+  color magenta
+  xyzwh 363 310 2010 11 243
+  overlappingdurationcanvas 130818
+    color magenta
+    xyzwh 369 315 2020 11 186
+  end
+end
+durationcanvas 131586 classinstance_ref 129922 // :ssh
+  color red
+  xyzwh 703 446 2010 11 77
+  overlappingdurationcanvas 131970
+    color red
+    xyzwh 709 492 2020 11 25
+  end
+end
+durationcanvas 131842 classinstance_ref 128258 // :webterm
+  color darkblue
+  xyzwh 970 492 2010 11 78
+  overlappingdurationcanvas 133122
+    color darkblue
+    xyzwh 976 539 2020 11 25
+  end
+end
+durationcanvas 132226 classinstance_ref 128002 // :browser
+  color lightorange
+  xyzwh 67 558 2010 11 55
+end
+durationcanvas 132354 classinstance_ref 129794 // :nginx
+  color darkgreen
+  xyzwh 803 558 2010 11 88
+  overlappingdurationcanvas 132610
+    color darkgreen
+    xyzwh 809 591 2020 11 45
+  end
+end
+durationcanvas 132866 classinstance_ref 128258 // :webterm
+  color darkblue
+  xyzwh 970 546 2010 11 97
+  overlappingdurationcanvas 133378
+    color darkblue
+    xyzwh 976 586 2020 11 25
+  end
+end
+lostfoundmsgsupport 131330 xyz 970 362 2025
+msg 130306 synchronous
+  from durationcanvas_ref 130050
+  to durationcanvas_ref 130178
+  yz 135 2015 explicitmsg "https login/start"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 83 104
+reflexivemsg 130946 synchronous
+  to durationcanvas_ref 130818
+  yz 315 2030 explicitmsg "meiotrev"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 382 285
+msg 131202 synchronous
+  from durationcanvas_ref 130818
+  to durationcanvas_ref 131074
+  yz 336 2025 explicitmsg "https"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 419 309
+msg 131458 lost_synchronous
+  from durationcanvas_ref 131074
+  to lostfoundmsgsupport_ref 131330
+  yz 360 2025 explicitmsg "run"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 845 335
+msg 131714 synchronous
+  from durationcanvas_ref 130818
+  to durationcanvas_ref 131586
+  yz 449 2025 explicitmsg "ssh -NR (rsa private key)"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 391 417
+msg 132098 synchronous
+  from durationcanvas_ref 131842
+  to durationcanvas_ref 131970
+  yz 492 2025 explicitmsg "ssh localhost"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 726 451
+msg 132482 synchronous
+  from durationcanvas_ref 132226
+  to durationcanvas_ref 132354
+  yz 564 2015 explicitmsg "https: webshell"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 96 531
+reflexivemsg 132738 synchronous
+  to durationcanvas_ref 132610
+  yz 591 2025 explicitmsg "proxy"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 818 547
+msg 132994 synchronous
+  from durationcanvas_ref 132610
+  to durationcanvas_ref 132866
+  yz 621 2025 explicitmsg "https"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 855 595
+reflexivemsg 133250 synchronous
+  to durationcanvas_ref 133122
+  yz 539 2025 explicitmsg "io"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 988 507
+reflexivemsg 133506 synchronous
+  to durationcanvas_ref 133378
+  yz 586 2025 explicitmsg "io"
+  show_full_operations_definition default show_class_of_operation default drawing_language default show_context_mode default
+  label_xy 988 554
+end

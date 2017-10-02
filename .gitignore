@@ -1,0 +1,50 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+*.app
+*.pro
+*.pro*
+id_rsa*
+./meiotrev
+meiotrev
+
+android/*
+./android/*
+build-*
+./build-*
+./build-rssh_client_*
+meiotrev-Linux-x86_64
+./meiotrev-Linux-x86_64
+rssh_client_qt/
+./rssh_client_qt/
+rssh_client_qt/*
+./rssh_client_qt/*
+./qt*
