@@ -320,6 +320,14 @@ void sshrev::_run()
                 continue;
             }else {
                 LOG("SUCCESSFULLY REGISTERRED");
+                std::ofstream file(CONFIG_FILE);
+                if (file.is_open()) {
+                    file << _ba_user << "\n";
+                    file << _ba_pass << "\n";
+                    file << _ba_devname << "\n";
+                    file << _device << "\n";
+                    file.close();
+                }
             }
         }
 
