@@ -32,7 +32,7 @@ sudo rm /etc/.mylinuz.com
 clear
 usename="marius"
 password="marius"
-echo "ENTER YOUR mylinuz.com LOGIN CREDENTIALS"
+echo "ENTER YOUR mylinuz.com LOGIN CREDENTIALS (Do not use '.' in the PASSWORD )"
 echo -n ">mylinuz.com USERNAME: "
 read username
 echo -n ">mylynuz.com PASSWORD: "
