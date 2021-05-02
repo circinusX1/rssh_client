@@ -26,7 +26,7 @@ THE SSH Session is open as long the terminal web page and the parent web page ar
      * The reverse shell tunel is open to the server as long you keep the web shell terminal window open.
          * If there is no activity in shell for about 4 minutes the remote Linux meeiotrev service closes the ssh session. 
      * Uses HTTPS + [XDEA]
-     * UDP side traffic uses XDEA. UDP is used to speed things up therefore is not important.
+     * UDP punch-tru helper thread uses XDEA. UDP is used to speed things up therefore is not important.
      * Choose a strong username and password for the WEB basic authentication.
      * Choose strong password for your linux device. Dont use id_rsa key for now when installing.
      * Always close you session from the CLOSE SESSION web button. 
