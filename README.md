@@ -76,7 +76,7 @@ cat /etc/.meiot_rev_cred  # to  see your device id login and web authorizarion (
 
 #check if the service is running
 :~/rssh_client$ ps ax | grep meiotrev 
-20196 ?        Ssl    0:00 /usr/local/bin/meiotrev https://rssh.mine.nu ** **
+20196 ?        Ssl    0:00 /usr/local/bin/meiotrev https://mylinuz.com ** **
 
 # the service log is in: /var/log/meiotrev.log
   
