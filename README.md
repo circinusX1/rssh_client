@@ -8,7 +8,7 @@
 ##### this is the source code for the client daemon for https://www.mylinuz.com service
 
 
-Web based shh remote terminal to any linux machine behind routers and firewalls.
+### Web based shh remote terminal to any linux machine behind routers and firewalls.
 
 Uses https and xtea encryption. 
 THE SSH Session is open as long the terminal web page and the parent web page are not closed but not longer than 15 minutes. 
