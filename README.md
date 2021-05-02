@@ -1,4 +1,5 @@
-# reerse ssh service. TO be used for mylinuz.com only Created: Sept 01 2017
+# reverse ssh service.
+
 ### HTTPS/RSA/XTEA FULLLY SECURED
 ##### https://www.youtube.com/watch?v=X6GtgLtpYsk
 
