@@ -1,4 +1,4 @@
-# reverse ssh service.
+# reverse ssh service (client).
 
 ### HTTPS/RSA/XTEA FULLLY SECURED
 ##### https://www.youtube.com/watch?v=X6GtgLtpYsk
