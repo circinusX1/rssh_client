@@ -38,19 +38,19 @@ THE SSH Session is open as long the terminal web page and the parent web page ar
 
 ##### Custom Server
 
-             * If we setup a custom server for you we can get rid of username/password and use rsa keys both ways.   
+             * If I setup a custom server for you I can get rid of username/password and use rsa keys both ways.   
 
 
 ##### Warning !
-   * All services like mylinuz.com can track all your typing. Everyting from web to ssh session is plain text at some point in the source code where the shell terminal handler is piped.
-       * We blocked this by securing all transport layes even on the server between NGINX and the SHELL (see the sequence diagram [io])
-   * Account password is hashed in your browser ande sent over HTTPS, we cannot see that but please don't pick a dumb web password which can be looked up by: https://www.md5online.org/md5-decrypt.html  or by https://md5decrypt.net/en/
+   * All services like mylinuz.com can track all your typing. Everyting from web to ssh session is plain text 
+at some point in the source code where the shell terminal handler is piped.
+       * I blocked this by securing all transport layers even on the server between NGINX and the SHELL (see the sequence diagram [io])
+   * Account password is hashed in your browser ande sent over HTTPS, I cannot see that but please don't pick a dumb web password which can be looked up by: https://www.md5online.org/md5-decrypt.html  or by https://md5decrypt.net/en/
       * As well for the second step authentication choose very strong password.
-      * I have all my 5 devices on this service sine begining. Is much secured than your banking account. To get to the shell you would need to pass these steps: (HTTPS)
+      * I have all my 5 devices on this service since begining. Is much secured than your banking account. To get to the shell you would need to pass these steps: (HTTPS)
        * Signin to mylinuz.com Web + captcha
        * Device id (40 characters long) is generated in your device only + captcha
        * Random generated session number (30 chacracters long)
-       * Basic web authentication, the one you picked when you installed the client
        * Username of your Linux
        * Password of your Linux
             
@@ -58,6 +58,10 @@ THE SSH Session is open as long the terminal web page and the parent web page ar
 
 #### Details of installation
 
+### The code is presented for information only. 
+   *  Do not alter the pooling time under 60 seconds.
+   *  Do not change the keys seeds salt and pepper.
+   *  Do not attemp to log in manually. The ssh reverse account is jailed into a non funcitonal chroot.
 
 
 ```bash
