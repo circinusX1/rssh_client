@@ -1,4 +1,4 @@
-# REVERSE SHELL CLIENT   (STARTED SEPT 17 2017)
+# reerse ssh service. TO be used for mylinuz.com only Created: Sept 01 2017
 ### HTTPS/RSA/XTEA FULLLY SECURED
 ##### https://www.youtube.com/watch?v=X6GtgLtpYsk
 
@@ -7,7 +7,9 @@
 ##### this is the source code for the client daemon for https://www.mylinuz.com service
 
 
-Web based shh terminal to any linux machine. Uses https and xtea encryption. 
+Web based shh remote terminal to any linux machine behind routers and firewalls.
+
+Uses https and xtea encryption. 
 THE SSH Session is open as long the terminal web page and the parent web page are not closed but not longer than 15 minutes. 
 
 
