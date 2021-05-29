@@ -64,7 +64,7 @@ echo ${devname} >> /etc/.mylinuz.com
 echo "REGISTERING TO MYLINUZ.COM"
 echo "USER: ${md5_user}"
 echo "PASS: ${md5_pass}, WILL BE MD5-ed"
-echo "DEV: ${devname}"
+echo "DEV:  ${devname}"
 
 
 cp -rf ./meiotrev-${oss}-${arch}${bitss} /usr/local/bin
@@ -113,19 +113,32 @@ echo "Starting service"
 systemctl start meiotrev
 systemctl daemon-reload
 echo "Please wait..."
-sleep 4
+sleep 8
 proc=$(systemctl status meiotrev | grep running)
-
-echo ">> Your /etc/.mylinuz.com"
+echo "---------------------------------------------------------------------------"
+echo ">> Your: /etc/.mylinuz.com"
 cat /etc/.mylinuz.com
-echo ">>Your: ${LOG} tail -20"
-[[ -f ${LOG} ]] && tail -20 ${LOG}
-
-if [[ ! -z ${proc} ]];then
-    echo "DONE"
-    echo "SCROLL UP TO SEE YOUR DEVICE ID FOR web login"
+if [[ -f ${LOG} ]];then
+	cnt=$(tail -20 ${LOG} | grep "DEVICE ID" | awk '{print $9}')
+	echo ""
+	if [[ ! -z ${proc} && ! -z ${cnt} ]];then
+	    echo "Installation complete. Here are  https://mylinuz.com credentials:"
+	    echo "Username:  ${username}"
+	    echo "Password:  ${passwd}"
+	    echo "${devname} DEVICE ID: '${cnt}'. Please write it down"
+	    echo "Username & Password and device name are saved in /etc/.mylinuz.com"
+	    echo "mylinuz.vom client service logs are  /var/log/ folder under meeiotrev* files"
+	else
+	    systemctl status meiotrev | grep running
+	    systemctl stop  meiotrev > /dev/zero
+	    systemctl disable  meiotrev > /dev/zero
+	    sudo rm /etc/.mylinuz.com
+	    echo "INSTALL FAILED. NO PROC!"
+	fi
 else
-    systemctl status meiotrev | grep running
-    echo "INSTALL FAILED"
+	    systemctl status meiotrev | grep running
+	    systemctl stop  meiotrev > /dev/zero
+	    systemctl disable  meiotrev > /dev/zero
+	    rm /etc/.mylinuz.com
+	    echo "INSTALL FAILED. NO LOG!"
 fi
-
