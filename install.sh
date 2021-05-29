@@ -30,13 +30,16 @@ systemctl stop  meiotrev > /dev/zero
 systemctl disable  meiotrev > /dev/zero
 sudo rm /etc/.mylinuz.com
 clear
-usename="marius"
-password="marius"
+usename="xxxxxxxx"
+password="yyyyyyyyyy"
 echo "ENTER YOUR mylinuz.com LOGIN CREDENTIALS (Do not use '.' in the PASSWORD )"
-echo -n ">mylinuz.com USERNAME: "
+echo -n ">mylinuz.com USERNAME (minim 8 characters long) :"
 read username
-echo -n ">mylynuz.com PASSWORD: "
+[[ ${#username} -le 8 ]] && echo "username has to be over 8 characters long" && exit 1
+
+echo -n ">mylynuz.com PASSWORD (min 10 characters):"
 read passwd
+[[ ${#passwd} -le 10 ]] && echo "password has to be over 10 characters long" && exit 1
 [[ ${passwd} =~ "." ]] && echo "dont use . or : in password" && exit 1
 
 devname=$(cat /etc/hostname)
@@ -55,7 +58,7 @@ echo ${md5_user} > /etc/.mylinuz.com
 echo ${md5_pass} >> /etc/.mylinuz.com
 echo ${devname} >> /etc/.mylinuz.com
 
-echo "REGISTERRING TO MYLINUZ"
+echo "REGISTERING TO MYLINUZ.COM"
 echo "USER: ${md5_user}"
 echo "PASS: ${md5_pass}, WILL BE MD5-ed"
 echo "DEV: ${devname}"
