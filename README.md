@@ -1,4 +1,5 @@
-# REVERSE SHELL CLIENT   (STARTED SEPT 17 2017)
+# reverse ssh service (client).
+
 ### HTTPS/RSA/XTEA FULLLY SECURED
 ##### https://www.youtube.com/watch?v=X6GtgLtpYsk
 
@@ -7,7 +8,9 @@
 ##### this is the source code for the client daemon for https://www.mylinuz.com service
 
 
-Web based shh terminal to any linux machine. Uses https and xtea encryption. 
+### Web based shh remote terminal to any linux machine behind routers and firewalls.
+
+Uses https and xtea encryption. 
 THE SSH Session is open as long the terminal web page and the parent web page are not closed but not longer than 15 minutes. 
 
 
@@ -23,7 +26,7 @@ THE SSH Session is open as long the terminal web page and the parent web page ar
      * The reverse shell tunel is open to the server as long you keep the web shell terminal window open.
          * If there is no activity in shell for about 4 minutes the remote Linux meeiotrev service closes the ssh session. 
      * Uses HTTPS + [XDEA]
-     * UDP side traffic uses XDEA. UDP is used to speed things up therefore is not important.
+     * The UDP you see is used to speed things up, it punch-tru the router to inform the client to pool now, not by pool interval, because the user just clicked connect onthe web page.
      * Choose a strong username and password for the WEB basic authentication.
      * Choose strong password for your linux device. Dont use id_rsa key for now when installing.
      * Always close you session from the CLOSE SESSION web button. 
@@ -35,19 +38,19 @@ THE SSH Session is open as long the terminal web page and the parent web page ar
 
 ##### Custom Server
 
-             * If we setup a custom server for you we can get rid of username/password and use rsa keys both ways.   
+             * If I setup a custom server for you I can get rid of username/password and use rsa keys both ways.   
 
 
 ##### Warning !
-   * All services like mylinuz.com can track all your typing. Everyting from web to ssh session is plain text at some point in the source code where the shell terminal handler is piped.
-       * We blocked this by securing all transport layes even on the server between NGINX and the SHELL (see the sequence diagram [io])
-   * Account password is hashed in your browser ande sent over HTTPS, we cannot see that but please don't pick a dumb web password which can be looked up by: https://www.md5online.org/md5-decrypt.html  or by https://md5decrypt.net/en/
+   * All services like mylinuz.com can track all your typing. Everyting from web to ssh session is plain text 
+at some point in the source code where the shell terminal handler is piped.
+       * I blocked this by securing all transport layers even on the server between NGINX and the SHELL (see the sequence diagram [io])
+   * Account password is hashed in your browser ande sent over HTTPS, I cannot see that but please don't pick a dumb web password which can be looked up by: https://www.md5online.org/md5-decrypt.html  or by https://md5decrypt.net/en/
       * As well for the second step authentication choose very strong password.
-      * I have all my 5 devices on this service sine begining. Is much secured than your banking account. To get to the shell you would need to pass these steps: (HTTPS)
+      * I have all my 5 devices on this service since begining. Is much secured than your banking account. To get to the shell you would need to pass these steps: (HTTPS)
        * Signin to mylinuz.com Web + captcha
        * Device id (40 characters long) is generated in your device only + captcha
        * Random generated session number (30 chacracters long)
-       * Basic web authentication, the one you picked when you installed the client
        * Username of your Linux
        * Password of your Linux
             
@@ -55,6 +58,10 @@ THE SSH Session is open as long the terminal web page and the parent web page ar
 
 #### Details of installation
 
+### The code is presented for information only. 
+   *  Do not alter the pooling time under 60 seconds.
+   *  Do not change the keys seeds salt and pepper.
+   *  Do not attemp to log in manually. The ssh reverse account is jailed into a non funcitonal chroot.
 
 
 ```bash
@@ -69,7 +76,7 @@ cat /etc/.meiot_rev_cred  # to  see your device id login and web authorizarion (
 
 #check if the service is running
 :~/rssh_client$ ps ax | grep meiotrev 
-20196 ?        Ssl    0:00 /usr/local/bin/meiotrev https://rssh.mine.nu ** **
+20196 ?        Ssl    0:00 /usr/local/bin/meiotrev https://mylinuz.com ** **
 
 # the service log is in: /var/log/meiotrev.log
   
