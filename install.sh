@@ -32,15 +32,17 @@ sudo rm /etc/.mylinuz.com
 clear
 usename="xxxxxxxx"
 password="yyyyyyyyyy"
-echo "ENTER YOUR mylinuz.com LOGIN CREDENTIALS (Do not use '.' in the PASSWORD )"
-echo -n ">mylinuz.com USERNAME (minim 8 characters long) :"
+echo "ENTER YOUR mylinuz.com LOGIN CREDENTIALS (These are to credentials to login to the website)"
+echo -n ">mylinuz.com USERNAME (minim 8 characters long and underscore): "
 read username
-[[ ${#username} -le 8 ]] && echo "username has to be over 8 characters long" && exit 1
+[[ ${#username} -le 8 ]] && echo "username over 8 characters and underscore" && exit 1
+[[ -z $(echo $username | grep "_") ]] && echo "you have to use at least one underscore" && exit 1
 
-echo -n ">mylynuz.com PASSWORD (min 10 characters):"
+echo -n ">mylynuz.com PASSWORD (min 10 characters, no . and at least one underscore): "
 read passwd
 [[ ${#passwd} -le 10 ]] && echo "password has to be over 10 characters long" && exit 1
 [[ ${passwd} =~ "." ]] && echo "dont use . or : in password" && exit 1
+[[ -z $(echo $passwd | grep "_") ]] && echo "you have to use at least one underscore" && exit 1
 
 devname=$(cat /etc/hostname)
 echo "WE FOUND MACHINE NAME: ${devname}"
@@ -120,6 +122,7 @@ echo ">>Your: ${LOG} tail -20"
 
 if [[ ! -z ${proc} ]];then
     echo "DONE"
+    echo "SCROLL UP TO SEE YOUR DEVICE ID FOR web login"
 else
     systemctl status meiotrev | grep running
     echo "INSTALL FAILED"
