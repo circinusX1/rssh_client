@@ -29,6 +29,7 @@ pkill  meiotrev-${oss}-${arch}${bitss} > /dev/zero
 systemctl stop  meiotrev > /dev/zero
 systemctl disable  meiotrev > /dev/zero
 sudo rm /etc/.mylinuz.com
+sleep 2
 clear
 usename="xxxxxxxx"
 password="yyyyyyyyyy"
