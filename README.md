@@ -62,10 +62,11 @@ THE SSH Session is open as long the terminal web page and the parent web page ar
 ```bash
 sudo ./install.sh
 
-````
+```
 
 ### If ./install fails rebuild the binary on th machine as
-````
+
+```bash
 sudo apt install libssh2-1-dev
 sudo apt install libcurl4-openssl-dev
 sudo apt install libuid-dev   (I dont know, this might be optional)
@@ -77,7 +78,8 @@ sudo ./install.sh
 
 
 # check if the service is running
-```
+```bash
+
 :~/rssh_client$ ps ax | grep meiotrev 
 20196 ?        Ssl    0:00 /usr/local/bin/meiotrev https://mylinuz.com ** **
 ```
@@ -85,7 +87,7 @@ sudo ./install.sh
 # the service logs are: /var/log/meiotrev.log
 # Your mylinuz credentials to access the device are in 
 
-```
+```bash
 cat /etc/.mylinuz.com   (user, password & device ID)
  
 ```
