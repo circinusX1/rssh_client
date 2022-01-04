@@ -52,18 +52,16 @@ THE SSH Session is open as long the terminal web page and the parent web page ar
        * Session number generated before connection unique on your web session
        * Username/Password of your Linux
             
-
-
 #### Details of installation
-
-### The code is presented for information only. 
    *  Do not alter the pooling time under 60 seconds.
    *  Do not change the keys seeds salt and pepper.
    *  Do not attemp to log in manually. The ssh reverse account is jailed into a non funcitonal chroot.
 
+## INSTALL 
 
 ```bash
 sudo ./install.sh
+
 ````
 
 ### If ./install fails rebuild the binary on th machine as
