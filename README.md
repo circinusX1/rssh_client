@@ -71,26 +71,28 @@ sudo apt install libcurl4-openssl-dev
 sudo apt install libuid-dev   (I dont know, this might be optional)
 ./make.sh or ./make_arm.sh  for nano pi r-pi and bbb, (iMX not tested)
 sudo ./install.sh
+```
 
 # follow the steps
 
+
 # check if the service is running
+```
 :~/rssh_client$ ps ax | grep meiotrev 
 20196 ?        Ssl    0:00 /usr/local/bin/meiotrev https://mylinuz.com ** **
+```
 
 # the service logs are: /var/log/meiotrev.log
-
 # Your mylinuz credentials to access the device are in 
+
+```
 cat /etc/.mylinuz.com   (user, password & device ID)
  
-
 ```
 
     
 #### access your device at:
-
 ##### https://www.mylinuz.com
-
 #### See a video on youtube
 ##### https://www.youtube.com/watch?v=X6GtgLtpYsk
 
