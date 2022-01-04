@@ -74,18 +74,15 @@ sudo apt install libuid-dev   (I dont know, this might be optional)
 sudo ./install.sh
 ```
 
-# follow the steps
-
-
-# check if the service is running
+##### check if the service is running
 ```bash
 
 :~/rssh_client$ ps ax | grep meiotrev 
 20196 ?        Ssl    0:00 /usr/local/bin/meiotrev https://mylinuz.com ** **
 ```
 
-# the service logs are: /var/log/meiotrev.log
-# Your mylinuz credentials to access the device are in 
+##### the service logs are: /var/log/meiotrev.log
+##### Your mylinuz credentials to access the device are in 
 
 ```bash
 cat /etc/.mylinuz.com   (user, password & device ID)
@@ -93,10 +90,10 @@ cat /etc/.mylinuz.com   (user, password & device ID)
 ```
 
     
-### access your device at:
-### https://www.mylinuz.com
-### See a video on youtube
-### https://www.youtube.com/watch?v=X6GtgLtpYsk
+##### access your device at:
+##### https://www.mylinuz.com
+##### See a video on youtube
+##### https://www.youtube.com/watch?v=X6GtgLtpYsk
 
 
 Credits: https://github.com/tsl0922/ttyd  for the webterm
