@@ -93,10 +93,10 @@ cat /etc/.mylinuz.com   (user, password & device ID)
 ```
 
     
-#### access your device at:
-##### https://www.mylinuz.com
-#### See a video on youtube
-##### https://www.youtube.com/watch?v=X6GtgLtpYsk
+### access your device at:
+### https://www.mylinuz.com
+### See a video on youtube
+### https://www.youtube.com/watch?v=X6GtgLtpYsk
 
 
 Credits: https://github.com/tsl0922/ttyd  for the webterm
