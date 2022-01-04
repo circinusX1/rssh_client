@@ -79,7 +79,11 @@ sudo ./install.sh
 20196 ?        Ssl    0:00 /usr/local/bin/meiotrev https://mylinuz.com ** **
 
 # the service logs are: /var/log/meiotrev.log
-  
+
+# Your mylinuz credentials to access the device are in 
+cat /etc/.mylinuz.com   (user, password & device ID)
+ 
+
 ```
 
     
