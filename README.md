@@ -71,14 +71,14 @@ sudo apt install libuid-dev   (I dont know, this might be optional)
 
 ./make.sh or ./make_arm.sh  for nano pi r-pi and bbb, (iMX not tested)
 sudo ./install.sh
-# follow the steps
-cat /etc/.meiot_rev_cred  # to  see your device id login and web authorizarion (this are not mylinuz.com credentials).
 
-#check if the service is running
+# follow the steps
+
+# check if the service is running
 :~/rssh_client$ ps ax | grep meiotrev 
 20196 ?        Ssl    0:00 /usr/local/bin/meiotrev https://mylinuz.com ** **
 
-# the service log is in: /var/log/meiotrev.log
+# the service logs are: /var/log/meiotrev.log
   
 ```
 
