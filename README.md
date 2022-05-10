@@ -103,4 +103,34 @@ Credits: https://github.com/tsl0922/ttyd  for the webterm
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L9RVWU5NUZ4YG)   [donations are taken care by meeiot domain]
 
 
+### Make your own server
+
+    * in home/shellterm build the modified shellterm using make.sh
+    * ./rssh_data  create a JAIL environment for the remote users just in case.
+    * /etc/ssh/sshd_config
+````
+# override default of no subsystems
+Subsystem   sftp    /usr/lib/openssh/sftp-server
+
+# Example of overriding settings on a per-user basis
+#Match User anoncvs
+X11Forwarding no
+X11UseLocalhost no
+AllowTcpForwarding yes
+#   PermitTTY no
+#   ForceCommand cvs server
+AllowTcpForwarding yes
+
+Match User rssh
+    ChrootDirectory /JAIL
+    X11Forwarding no
+    AuthorizedKeysFile  /home/rssh/.ssh/authorized_keys
+    PermitTunnel yes
+    AllowAgentForwarding yes
+````
+    * create the sql database
+    * install the web in your nginx folder. NGINX is mandatory.
+    
+    
+
 
