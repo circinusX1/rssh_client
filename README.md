@@ -132,5 +132,5 @@ Match User rssh
     * install the web in your nginx folder. NGINX is mandatory.
     
     
-
+## If you want your private customised server please Open an issue, and we can take it from there.
 
