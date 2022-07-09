@@ -105,5 +105,5 @@ Credits: https://github.com/tsl0922/ttyd  for the webterm
 
 
     
-## If you want your private customised server please Open an issue, and we can take it from there.
+*  If you want your private customised secured  server please Open an issue. 
 
