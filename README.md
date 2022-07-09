@@ -19,7 +19,9 @@ You can tweak that macro to your needs in the code prior to build. Anyway the se
   * Build from sources 
       * Build for PI or x86 or BBB or iMx6 or NanoPI using appropriate bash make*.sh
       * The secret_lib.a just hides the salt & peper rules and XTEA keys. Don't reverse-engineer-it. 
-      * Do not try to hack into the server or access different ports othrer than the ones assigned to your ssh session. 
+          * The XTEA was there during tests when I did not use https, and was a hassle to remove it late in the process.
+      * Do not try to hack into the server or access different ports othrer than the ones assigned to your ssh session.
+            * Each web connection is strighly tighed to the session and any out of context access willl kill your current session and log you out.     
             * Automated scripts will block any OOO activity IP for 200 hours. 
       * Install from binaries      
           * run install.sh. This installs meiotrev as a service. Write down the device ID or cat /etc/.mylinuz.com, 
