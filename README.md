@@ -73,7 +73,7 @@ sudo ./install.sh
 ##### check if the service is running
 ```bash
 
-:~/rssh_client$ ps ax | grep meiotrev 
+:~/rssh_client$ ps ax | grep mylinuz  # could by meeiot, I chnaged the names back and forward coule of times !!! 
 20196 ?        Ssl    0:00 /usr/local/bin/meiotrev https://mylinuz.com ** **
 ```
 
