@@ -5,61 +5,53 @@
 
 ### https://mylinuz.com
 
-##### this is the source code for the client daemon for https://www.mylinuz.com service
+##### this is the source code for the client service for: https://www.mylinuz.com service
 
 
 ### Web based shh remote terminal to any linux machine behind routers and firewalls.
 
-Uses https and xtea encryption. 
-The SSH Session is open as long the terminal web page and the parent web page are not closed but not longer than 15 minutes. 
-The daemon client (this) disconnects from server in 1 min of inactivity (no typing). 
-You can tweak that macro to your needs in the code prior to build. Anyway the server webterm will disconnect in about 5 min of innactivity (no typing).
-
-
   * Build from sources 
       * Build for PI or x86 or BBB or iMx6 or NanoPI using appropriate bash make*.sh
-      * The secret_lib.a just hides the salt & peper rules and XTEA keys. Don't reverse-engineer-it. 
-          * The XTEA was there during tests when I did not use https, and was a hassle to remove it late in the process.
-      * Do not try to hack into the server or access different ports othrer than the ones assigned to your ssh session.
-            * Each web connection is strighly tighed to the session and any out of context access willl kill your current session and log you out.     
-            * Automated scripts will block any OOO activity IP for 200 hours. 
-      * Install from binaries      
-          * run install.sh. This installs meiotrev as a service. Write down the device ID or cat /etc/.mylinuz.com, 
-            then go to  https://mylinuz.com
+      * The secret_lib.a just hides the salt & peper rules and XTEA keys.  
+          * The XTEA was there during tests when I did not use https. Is useless now.
+
+   * Install from binaries      
+      * run install.sh. This installs mylinuz as a service. Write down the device ID or cat /etc/.mylinuz.com, 
+        then go to  https://mylinuz.com and log on.
+      * In /var/log/meeiot or /var/log/mylinuz  (check which folder is currently used) you have your device logs.  
+      * If you have multiple devices use the same username and password.  
   
-  * How secure.
+  * Sessions
      * The reverse shell tunel is open to the server as long you keep the web shell terminal window open.
-         * If there is no activity in shell for about 4 minutes the remote Linux meeiotrev service closes the ssh session. 
-     * Uses [XDEA] over HTTPS 
-     * The UDP you see is used to speed things up, it punch-tru the router to inform the 
-      client to pool now, not by pool interval, because the user just clicked connect onthe web page.
-     * Choose a strong username and password for the WEB basic authentication.
-     * Choose strong password for your linux device. Dont use id_rsa key for now when installing.
+         *  A connection stays alive maximum 10 minutes (if there is shell traffic).  
+         *  If there is no activity the service mylinuz.com will dropp  the connection in 1 minute.
+---
 
-     * Always close you session from the CLOSE SESSION web button. 
-          * If not you have to wait about 2 minutes to close itself
+  * How secure.
+     * Uses [XDEA] , useless, now uses https.
+     * Over HTTPS, as secure as is the HTTPS.
+          *  The UDP side socket you see is used to speed things up, it punch-tru the router to inform the 
+             client to pool now, not by pool interval, due to; the user just clicked connect onthe web page.  (currently disables)
+     * Choose a strong username and passwordwhen you install the serive on your Linux running the install script.
+     * Choose strong password for your linux device. Linux/Device users as: pi, ubuntu, debian, user, root, admin, remote, are rejected.
+     * Do not use id_rsa key authentication when installing.
+     * Always close you session from the CLOSE SESSION web button after typing exit in the shell. 
+          * If not you have to wait about 1 minutes to close itself
+---
 
-      * Multi step authentication
-          * mylinuz.com credentials + username/password/unique device id.
-          * Then session-id (generated at runtime before opennning the ssh -R) in the access web page
-          * Then your Linux machine username and password.
+  * Multi step authentication
+     * https: mylinuz.com credentials + username/password/unique device id.
+     * Then session-id (generated at runtime before opennning the ssh -R) in the access web page
+     * Then your Linux machine username and password.
 
-##### Warning !
-   * All web based RSSH services as thi one can track all your typing. 
-            Everyting from web to ssh session is plain TEXT at some point in the pipeline.
-       * mylinuz is blocking this by securing all transport layers even on the server between NGINX and the SHELL (see the sequence diagram [io])
-   * Account password is hashed and then sent over HTTPS, but anyway don't pick a dumb web password which can be looked up by: https://www.md5online.org/md5-decrypt.html  or by https://md5decrypt.net/en/
-      * As well for the second step authentication choose very strong password.
-      * I have all my 5 devices on this service since begining. Is much secured than your banking account. 
-             To get to the shell you would need to pass these steps
-       * Signin to mylinuz.com Web
-       * Session number generated before connection unique on your web session
-       * Username/Password of your Linux
-            
+##### How does it work
+     * Preety much like this:
+     * https://www.howtogeek.com/428413/what-is-reverse-ssh-tunneling-and-how-to-use-it/
+           
 #### Details of installation
    *  Do not alter the pooling time under 60 seconds.
    *  Do not change the keys seeds salt and pepper.
-   *  Do not attemp to log in manually. The ssh reverse account is jailed into a non funcitonal chroot.
+   *  Do not attemp to log in manually. The ssh reverse account is jailed into a non funcitonal chroot, and you risk IP banning.
 
 ## INSTALL 
 
@@ -93,9 +85,14 @@ cat /etc/.mylinuz.com   (user, password & device ID)
  
 ```
 
-    
-##### access your device at:
-##### https://www.mylinuz.com
+##### Warning !
+   * Don't pick a dumb device password which can be looked up by: https://www.md5online.org/md5-decrypt.html  or by https://md5decrypt.net/en/
+   * At some point in the webterm-handler process at mylinuz.com server, what you type is in plain text. This is when data passed from https to rev-ssh. 
+If the coder want to log that information it simply  dumps that with printf() in a file, therfore all your typing can be traced. I am just
+saying that to be aware of any other similar services can track all your all your typing. In the case of mylinuz.con you just have to trust the
+service. Anyway, you have logs on your device and you can track any other access out of your own, and if you find unauthorized access, delete your accounts. If you want your own server with this service installed, open an issue, and we can take it from there. Is not for free and is not cheap.
+
+
 ##### See a video on youtube
 ##### https://www.youtube.com/watch?v=X6GtgLtpYsk
 
@@ -107,34 +104,6 @@ Credits: https://github.com/tsl0922/ttyd  for the webterm
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=L9RVWU5NUZ4YG)   [donations are taken care by meeiot domain]
 
 
-### Make your own server
-
-    * in home/shellterm build the modified shellterm using make.sh
-    * ./rssh_data  create a JAIL environment for the remote users just in case.
-    * /etc/ssh/sshd_config
-````
-# override default of no subsystems
-Subsystem   sftp    /usr/lib/openssh/sftp-server
-
-# Example of overriding settings on a per-user basis
-#Match User anoncvs
-X11Forwarding no
-X11UseLocalhost no
-AllowTcpForwarding yes
-#   PermitTTY no
-#   ForceCommand cvs server
-AllowTcpForwarding yes
-
-Match User rssh
-    ChrootDirectory /JAIL
-    X11Forwarding no
-    AuthorizedKeysFile  /home/rssh/.ssh/authorized_keys
-    PermitTunnel yes
-    AllowAgentForwarding yes
-````
-    * create the sql database
-    * install the web in your nginx folder. NGINX is mandatory.
     
-    
-## If you want your private customised server please Open an issue, and we can take it from there.
+## If you want your private customised server please Open an issue, and we can take it from there. Is not for free and is not cheap.
 
