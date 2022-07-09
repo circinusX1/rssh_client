@@ -13,14 +13,13 @@
   * Build from sources 
       * Build for PI or x86 or BBB or iMx6 or NanoPI using appropriate bash make*.sh
       * The secret_lib.a just hides the salt & peper rules and XTEA keys.  
-          * The XTEA was there during tests when I did not use https. Is useless now.
+          * The XTEA was added during tests when I did not use https. Is useless now.
 
    * Install from binaries      
       * run install.sh. This installs mylinuz as a service. Write down the device ID or cat /etc/.mylinuz.com, 
         then go to  https://mylinuz.com and log on.
-      * Check /var/log/meeiot*    or something similar for the log files.
-         * BUG!!!  delete that file periodically. Fix in progress. 
-      * If you have multiple devices use the same username and password.  
+      * Check /var/log/meeiotrev.log for Device client logs
+      * If you have multiple devices use the same username and password when running install.sh.  
   
   * Sessions
      * The reverse shell tunel is open to the server as long you keep the web shell terminal window open.
