@@ -90,7 +90,7 @@ cat /etc/.mylinuz.com   (user, password & device ID)
    * At some point in the webterm-handler process at mylinuz.com server, what you type is in plain text. This is when data passed from https to rev-ssh. 
 If the coder want to log that information it simply  dumps that with printf() in a file, therfore all your typing can be traced. I am just
 saying that to be aware of any other similar services can track all your all your typing. In the case of mylinuz.con you just have to trust the
-service. Anyway, you have logs on your device and you can track any other access out of your own, and if you find unauthorized access, delete your accounts. If you want your own server with this service installed, open an issue, and we can take it from there. Is not for free and is not cheap.
+service. Anyway, you have logs on your device and you can track any other access out of your own, and if you find unauthorized access, delete your accounts. If you want your own server with this service installed, open an issue, and we can take it from there. Setting up a new server is not free.
 
 
 ##### See a video on youtube
@@ -105,5 +105,5 @@ Credits: https://github.com/tsl0922/ttyd  for the webterm
 
 
     
-## If you want your private customised server please Open an issue, and we can take it from there. Is not for free and is not cheap.
+## If you want your private customised server please Open an issue, and we can take it from there.
 
