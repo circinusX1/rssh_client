@@ -18,7 +18,8 @@
    * Install from binaries      
       * run install.sh. This installs mylinuz as a service. Write down the device ID or cat /etc/.mylinuz.com, 
         then go to  https://mylinuz.com and log on.
-      * In /var/log/meeiot or /var/log/mylinuz  (check which folder is currently used) you have your device logs.  
+      * Check /var/log/meeiot*    or something similar for the log files.
+         * BUG!!!  delete that file periodically. Fix in progress. 
       * If you have multiple devices use the same username and password.  
   
   * Sessions
