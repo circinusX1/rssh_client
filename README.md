@@ -31,7 +31,7 @@
      * Uses [XDEA] , useless, now uses https.
      * Over HTTPS, as secure as is the HTTPS.
           *  The UDP side socket you see is used to speed things up, it punch-tru the router to inform the 
-             client to pool now, not by pool interval, due to; the user just clicked connect onthe web page.  (currently disables)
+             client to pool now, not by pool interval, due to; the user just clicked connect onthe web page.  (is disabled)
      * Choose a strong username and passwordwhen you install the serive on your Linux running the install script.
      * Choose strong password for your linux device. Linux/Device users as: pi, ubuntu, debian, user, root, admin, remote, are rejected.
      * Do not use id_rsa key authentication when installing.
