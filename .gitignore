@@ -48,3 +48,6 @@ rssh_client_qt/
 rssh_client_qt/*
 ./rssh_client_qt/*
 ./qt*
+./qt_rsshcli/*.user
+./build-*
+
