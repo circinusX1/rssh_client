@@ -1,7 +1,6 @@
 # reverse ssh service (client).
 
-### HTTPS/RSA/XTEA FULLLY SECURED
-##### https://www.youtube.com/watch?v=X6GtgLtpYsk
+### HTTPS + RSA + XTEA ALMOST 99.9999999999999999999999999999999999999999...999% SECURED
 
 ### https://mylinux.mine.nu
 
