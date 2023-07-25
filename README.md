@@ -93,8 +93,6 @@ service. Anyway, you have logs on your device and you can track any other access
 
 
 ##### See a video on youtube
-##### https://www.youtube.com/watch?v=X6GtgLtpYsk
-
 
 Credits: https://github.com/tsl0922/ttyd  for the webterm
 
