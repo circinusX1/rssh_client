@@ -28,13 +28,13 @@ SRVE="/lib/systemd/system/meiotrev.service"
 pkill  meiotrev-${oss}-${arch}${bitss} > /dev/zero
 systemctl stop  meiotrev > /dev/zero
 systemctl disable  meiotrev > /dev/zero
-sudo rm /etc/.mylinuz.com
+sudo rm /etc/.mylinux.mine.nu
 sleep 2
 clear
 usename="xxxxxxxx"
 password="yyyyyyyyyy"
-echo "ENTER YOUR mylinuz.com LOGIN CREDENTIALS (These are to credentials to login to the website)"
-echo -n ">mylinuz.com USERNAME (minim 8 characters long and underscore): "
+echo "ENTER YOUR mylinux.mine.nu LOGIN CREDENTIALS (These are to credentials to login to the website)"
+echo -n ">mylinux.mine.nu USERNAME (minim 8 characters long and underscore): "
 read username
 [[ ${#username} -le 8 ]] && echo "username over 8 characters and underscore" && exit 1
 [[ -z $(echo $username | grep "_") ]] && echo "you have to use at least one underscore" && exit 1
@@ -57,11 +57,11 @@ fi
 md5_user=${username}
 md5_pass=${passwd}
 
-echo ${md5_user} > /etc/.mylinuz.com
-echo ${md5_pass} >> /etc/.mylinuz.com
-echo ${devname} >> /etc/.mylinuz.com
+echo ${md5_user} > /etc/.mylinux.mine.nu
+echo ${md5_pass} >> /etc/.mylinux.mine.nu
+echo ${devname} >> /etc/.mylinux.mine.nu
 
-echo "REGISTERING TO MYLINUZ.COM"
+echo "REGISTERING TO mylinux.mine.nu"
 echo "USER: ${md5_user}"
 echo "PASS: ${md5_pass}, WILL BE MD5-ed"
 echo "DEV:  ${devname}"
@@ -82,7 +82,7 @@ echo "Wants=network-online.target" >> ${SRVE}
 echo "" >> ${SRVE}
 echo "[Service]" >> ${SRVE}
 echo "Type=simple" >> ${SRVE}
-echo "ExecStart=/usr/local/bin/meiotrev-${oss}-${arch}${bitss} https://mylinuz.com" >> ${SRVE}
+echo "ExecStart=/usr/local/bin/meiotrev-${oss}-${arch}${bitss} https://mylinux.mine.nu" >> ${SRVE}
 echo "StandardOutput=file:${LOG}" >> ${SRVE}
 echo "StandardError=file:${LOG}" >> ${SRVE}
 echo "" >> ${SRVE}
@@ -116,29 +116,29 @@ echo "Please wait..."
 sleep 8
 proc=$(systemctl status meiotrev | grep running)
 echo "---------------------------------------------------------------------------"
-echo ">> Your: /etc/.mylinuz.com"
-cat /etc/.mylinuz.com
+echo ">> Your: /etc/.mylinux.mine.nu"
+cat /etc/.mylinux.mine.nu
 if [[ -f ${LOG} ]];then
 	cnt=$(tail -20 ${LOG} | grep "DEVICE ID" | awk '{print $9}')
 	echo ""
 	if [[ ! -z ${proc} && ! -z ${cnt} ]];then
-	    echo "Installation complete. Here are  https://mylinuz.com credentials:"
+	    echo "Installation complete. Here are  https://mylinux.mine.nu credentials:"
 	    echo "Username:  ${username}"
 	    echo "Password:  ${passwd}"
 	    echo "${devname} DEVICE ID: '${cnt}'. Please write it down"
-	    echo "Username & Password and device name are saved in /etc/.mylinuz.com"
+	    echo "Username & Password and device name are saved in /etc/.mylinux.mine.nu"
 	    echo "mylinuz.vom client service logs are  /var/log/ folder under meeiotrev* files"
 	else
 	    systemctl status meiotrev | grep running
 	    systemctl stop  meiotrev > /dev/zero
 	    systemctl disable  meiotrev > /dev/zero
-	    sudo rm /etc/.mylinuz.com
+	    sudo rm /etc/.mylinux.mine.nu
 	    echo "INSTALL FAILED. NO PROC!"
 	fi
 else
 	    systemctl status meiotrev | grep running
 	    systemctl stop  meiotrev > /dev/zero
 	    systemctl disable  meiotrev > /dev/zero
-	    rm /etc/.mylinuz.com
+	    rm /etc/.mylinux.mine.nu
 	    echo "INSTALL FAILED. NO LOG!"
 fi
