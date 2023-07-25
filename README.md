@@ -73,12 +73,12 @@ sudo ./install.sh
 ##### check if the service is running
 ```bash
 
-:~/rssh_client$ ps ax | grep mylinuz  # could by meeiot, I chnaged the names back and forward coule of times !!! 
+:~/rssh_client$ ps ax | grep mylinux  # could by meeiot, I chnaged the names back and forward coule of times !!! 
 20196 ?        Ssl    0:00 /usr/local/bin/meiotrev https://mylinux.mine.nu ** **
 ```
 
 ##### the service logs are: /var/log/meiotrev.log
-##### Your mylinuz credentials to access the device are in 
+##### Your mylinux credentials to access the device are in 
 
 ```bash
 cat /etc/.mylinux.mine.nu   (user, password & device ID)

@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     }
 #endif
     if(argc != 2){
-        std::cout << "missing url: https://mylinuz.com\n";
+        std::cout << "missing url: https://mylinux.mine.nu\n";
         exit(-1);
     }
     if(::access(CONFIG_FILE,0)==0)

@@ -100,12 +100,12 @@ bool sshrev::_register()
     LOG("-------------------------------");
     LOG("DEVICE ID        : " << _device);
     LOG("DEVICE NAME      : " << _ba_devname);
-    LOG("MYLINUZ USER        : " << _ba_user);
-    LOG("MYLINUZ PASSWORD    : " << _ba_pass);
+    LOG("MYLINUX USER        : " << _ba_user);
+    LOG("MYLINUX PASSWORD    : " << _ba_pass);
     std::cout << "DEVICE ID        : " << _device << "\n";
     std::cout << "DEVICE NAME      : " << _ba_devname << "\n";
-    std::cout << "MYLINUZ USER        : " << _ba_user << "\n";
-    std::cout << "MYLINUZ PASSWORD    : " << _ba_pass << "\n";
+    std::cout << "MYLINUX USER        : " << _ba_user << "\n";
+    std::cout << "MYLINUX PASSWORD    : " << _ba_pass << "\n";
 
     ::curl_global_init(CURL_GLOBAL_DEFAULT);
     CURL*  curl = ::curl_easy_init();
@@ -160,7 +160,7 @@ bool sshrev::_register()
                 ::secret_get_pr(pkpk, _device, pkl, k4, _priv_key, _pub_key);
                 if(access != "granted")
                 {
-                    LOG("ERR: https://mylinuz.com" << _device );
+                    LOG("ERR: https://mylinux.mine.nu" << _device );
                     return rv;
                 }
                 if(_priv_key.empty() || _pub_key.empty())

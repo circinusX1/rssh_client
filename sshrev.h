@@ -40,7 +40,7 @@ FOR A PARTICULAR PURPOSE.
 #include "secret.h"
 
 #define SOME_LOOPS 4
-#define CONFIG_FILE "/etc/.mylinuz.com"
+#define CONFIG_FILE "/etc/.mylinux.mine.nu"
 enum ECMD_C{eNOTHING, eSTART, eHOLD, eSTOP};
 
 class shsession;
