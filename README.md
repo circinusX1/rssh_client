@@ -3,9 +3,9 @@
 ### HTTPS/RSA/XTEA FULLLY SECURED
 ##### https://www.youtube.com/watch?v=X6GtgLtpYsk
 
-### https://mylinuz.com
+### https://mylinux.mine.nu
 
-##### this is the source code for the client service for: https://www.mylinuz.com service
+##### this is the source code for the client service for: https://www.mylinux.mine.nu service
 
 
 ### Web based shh remote terminal to any linux machine behind routers and firewalls.
@@ -16,15 +16,15 @@
           * The XTEA was added during tests when I did not use https. Is useless now.
 
    * Install from binaries      
-      * run install.sh. This installs mylinuz as a service. Write down the device ID or cat /etc/.mylinuz.com, 
-        then go to  https://mylinuz.com and log on.
+      * run install.sh. This installs mylinux.mine.nu as a service. Write down the device ID or cat /etc/.mylinux.mine.nu, 
+        then go to  https://mylinux.mine.nu and log on.
       * Check /var/log/meeiotrev.log for Device client logs
       * If you have multiple devices use the same username and password when running install.sh.  
   
   * Sessions
      * The reverse shell tunel is open to the server as long you keep the web shell terminal window open.
          *  A connection stays alive maximum 10 minutes (if there is shell traffic).  
-         *  If there is no activity the service mylinuz.com will dropp  the connection in 1 minute.
+         *  If there is no activity the service mylinux.mine.nu will dropp  the connection in 1 minute.
 ---
 
   * How secure.
@@ -40,7 +40,7 @@
 ---
 
   * Multi step authentication
-     * https: mylinuz.com credentials + username/password/unique device id.
+     * https: mylinux.mine.nu credentials + username/password/unique device id.
      * Then session-id (generated at runtime before opennning the ssh -R) in the access web page
      * Then your Linux machine username and password.
 
@@ -74,20 +74,20 @@ sudo ./install.sh
 ```bash
 
 :~/rssh_client$ ps ax | grep mylinuz  # could by meeiot, I chnaged the names back and forward coule of times !!! 
-20196 ?        Ssl    0:00 /usr/local/bin/meiotrev https://mylinuz.com ** **
+20196 ?        Ssl    0:00 /usr/local/bin/meiotrev https://mylinux.mine.nu ** **
 ```
 
 ##### the service logs are: /var/log/meiotrev.log
 ##### Your mylinuz credentials to access the device are in 
 
 ```bash
-cat /etc/.mylinuz.com   (user, password & device ID)
+cat /etc/.mylinux.mine.nu   (user, password & device ID)
  
 ```
 
 ##### Warning !
    * Don't pick a dumb device password which can be looked up by: https://www.md5online.org/md5-decrypt.html  or by https://md5decrypt.net/en/
-   * At some point in the webterm-handler process at mylinuz.com server, what you type is in plain text. This is when data passed from https to rev-ssh. 
+   * At some point in the webterm-handler process at mylinux.mine.nu server, what you type is in plain text. This is when data passed from https to rev-ssh. 
 If the coder want to log that information it simply  dumps that with printf() in a file, therfore all your typing can be traced. I am just
 saying that to be aware of any other similar services can track all your all your typing. In the case of mylinuz.con you just have to trust the
 service. Anyway, you have logs on your device and you can track any other access out of your own, and if you find unauthorized access, delete your accounts. If you want your own server with this service installed, open an issue, and we can take it from there. Setting up a new server is not free.
