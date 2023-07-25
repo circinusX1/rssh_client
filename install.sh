@@ -133,7 +133,7 @@ if [[ -f ${LOG} ]];then
 	    systemctl stop  meiotrev > /dev/zero
 	    systemctl disable  meiotrev > /dev/zero
 	    sudo rm /etc/.mylinux.mine.nu
-	    echo "INSTALL FAILED. NO PROC!"
+	    echo "INSTALL FAILED. Cannot find running daemon!. Try to build the binary running ./make.sh and repeat the install"
 	fi
 else
 	    systemctl status meiotrev | grep running
