@@ -127,7 +127,7 @@ if [[ -f ${LOG} ]];then
 	    echo "Password:  ${passwd}"
 	    echo "${devname} DEVICE ID: '${cnt}'. Please write it down"
 	    echo "Username & Password and device name are saved in /etc/.mylinux.mine.nu"
-	    echo "mylinuz.vom client service logs are  /var/log/ folder under meeiotrev* files"
+	    echo "mylinux.mine.nu client service logs are  /var/log/ folder under meeiotrev* files"
 	else
 	    systemctl status meiotrev | grep running
 	    systemctl stop  meiotrev > /dev/zero
